@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://649056c61e6aa71680cb10b1.mockapi.io';
 
@@ -19,7 +20,8 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', contact);
+        const response = await axios.post('/contacts', contact);
+        toast.success(`Сontact "${contact.name}" has been added`)
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
