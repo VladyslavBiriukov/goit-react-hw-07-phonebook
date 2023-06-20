@@ -27,17 +27,6 @@ function ContactList()  {
 
     return (
         <>
-            {isLoading && <PacmanLoader
-                color="#424242"
-                cssOverride={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    height: 20,
-                    width: 0,
-                    transform: 'translate(-50%, -50%)',
-                }} />}
-
             {/* якщо немає контактів і не йде загрузка і не виникла помилка */}
             {!filteredContacts?.length && !error && !isLoading && (
                 <p className={css.sorry}>No contacts found.</p>
@@ -46,6 +35,17 @@ function ContactList()  {
             {/* якщо виникла помилка */}
             {error && <p className={css.text}>{error}</p>}
             <ul className={css.list}>
+
+                {isLoading && <PacmanLoader
+                    color="#424242"
+                    cssOverride={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '45%',
+                        height: 20,
+                        width: 0,
+                        transform: 'translate(-50%, -50%)',
+                    }} />}
 
                 {/* Перебираємо масив контактів і рендеримо їх */}
                 {filteredContacts.map(({ id, name, phone }) => (
