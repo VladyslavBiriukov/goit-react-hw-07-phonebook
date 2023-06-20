@@ -17,7 +17,7 @@ function ContactForm () {
     const contact = {
       id: nanoid(),
       name: event.currentTarget.elements.name.value,
-      number: event.currentTarget.elements.number.value,
+      phone: event.currentTarget.elements.number.value,
     };
 
 
